@@ -1,4 +1,4 @@
-# Welcome to Setup Wikiesow
+# Setup Wikiesow
 
 ## Raspberry Pi
 
