@@ -2,7 +2,7 @@ site_name: Setup Wikiesow
 theme:
     name: 'material'
     palette:
-        primary: 'red'
-        accent: 'orange'
+        primary: 'grey'
+        accent: 'deep orange'
 repo_name: 'tippi09/wikiesow'
 repo_url: 'https://github.com/tippi09/wikiesow'
