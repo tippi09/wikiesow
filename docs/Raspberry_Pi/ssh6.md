@@ -1,1 +1,1 @@
-# Configure SSH over IPv6
+# Configure SSH over IPv6 (coming soon)
