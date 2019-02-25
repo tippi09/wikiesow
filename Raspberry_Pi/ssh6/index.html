@@ -444,7 +444,7 @@ At this point you should be able to connect to your Raspberry Pi from the intern
 </code></pre>
 
 <h2 id="configure-dynamic-dns-optional">Configure Dynamic DNS (optional)</h2>
-<p>By configuring DynDNS you can connect to your Raspberry by using a hostname instead of the complete IPv6 address. I'm using a hostname from <a href="dynv6.com">dynv6.com</a> as they support IPv6, but of course you are free to choose a different service. After creating a hostname we have to make sure the hostname is always pointing at the current IPv6 address of the Pi. Therefor I wrote a small script based on a script from <a href="dynv6.com">dynv6.com</a>:</p>
+<p>By configuring DynDNS you can connect to your Raspberry by using a hostname instead of the complete IPv6 address. I'm using a hostname from <a href="https://dynv6.com">dynv6.com</a> as they support IPv6, but of course you are free to choose a different service. After creating a hostname we have to make sure the hostname is always pointing at the current IPv6 address of the Pi. Therefor I wrote a small script based on a script from <a href="https://dynv6.com">dynv6.com</a>:</p>
 <pre><code class="console">#!/bin/sh -e
 hostname=&lt;yourhostname&gt;
 device=$2
@@ -552,13 +552,6 @@ echo $current &gt; $file
         
       </div>
       
-  <div class="md-footer-social">
-    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
-    
-      <a href="https://github.com/tippi09" class="md-footer-social__link fa fa-github"></a>
-    
-  </div>
-
     </div>
   </div>
 </footer>
