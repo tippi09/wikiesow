@@ -1,4 +1,5 @@
-site_name: Setup Wiki
+site_name: Coding
+home_url: 'https://saschakiesow.de'
 theme:
     name: 'material'
     custom_dir: '../mkdocs-material/material/'
