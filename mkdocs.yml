@@ -1,8 +1,12 @@
-site_name: Setup Wikiesow
+site_name: Setup Wiki
 theme:
     name: 'material'
-    palette:
-        primary: 'grey'
-        accent: 'deep orange'
+    custom_dir: '../mkdocs-material/material/'
+    favicon: 'images/favicon.ico'
+    logo: 'images/logo.png'
+    font:
+        text: 'Montserrat'
+        code: 'Roboto Mono'
 repo_name: 'tippi09/wikiesow'
 repo_url: 'https://github.com/tippi09/wikiesow'
+copyright: '&copy; 2019 Sascha Kiesow'
