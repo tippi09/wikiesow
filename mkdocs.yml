@@ -11,7 +11,3 @@ theme:
 repo_name: 'tippi09/wikiesow'
 repo_url: 'https://github.com/tippi09/wikiesow'
 copyright: '&copy; 2019 Sascha Kiesow'
-extra:
-    social:
-        - type: 'github'
-          link: 'https://github.com/tippi09'

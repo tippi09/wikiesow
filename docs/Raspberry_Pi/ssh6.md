@@ -35,7 +35,7 @@ At this point you should be able to connect to your Raspberry Pi from the intern
 # ssh -6 <user>@<global ipv6>
 ```
 ## Configure Dynamic DNS (optional)
-By configuring DynDNS you can connect to your Raspberry by using a hostname instead of the complete IPv6 address. I'm using a hostname from [dynv6.com](dynv6.com) as they support IPv6, but of course you are free to choose a different service. After creating a hostname we have to make sure the hostname is always pointing at the current IPv6 address of the Pi. Therefor I wrote a small script based on a script from [dynv6.com](dynv6.com):
+By configuring DynDNS you can connect to your Raspberry by using a hostname instead of the complete IPv6 address. I'm using a hostname from [dynv6.com](https://dynv6.com) as they support IPv6, but of course you are free to choose a different service. After creating a hostname we have to make sure the hostname is always pointing at the current IPv6 address of the Pi. Therefor I wrote a small script based on a script from [dynv6.com](https://dynv6.com):
 ```console
 #!/bin/sh -e
 hostname=<yourhostname>
