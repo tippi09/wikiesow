@@ -105,7 +105,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="https://saschakiesow.de" title="Coding" class="md-header-nav__button md-logo">
           
-            <img src="../../images/logo.png" width="27" height="27">
+            <img src="../../images/logo.png" width="24" height="24">
           
         </a>
       </div>
@@ -294,9 +294,52 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Configure SSH over IPv6
+      </label>
+    
     <a href="./" title="Configure SSH over IPv6" class="md-nav__link md-nav__link--active">
       Configure SSH over IPv6
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#raspberry-pi-settings" title="Raspberry Pi settings" class="md-nav__link">
+    Raspberry Pi settings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#router-settings" title="Router settings" class="md-nav__link">
+    Router settings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-dynamic-dns-optional" title="Configure Dynamic DNS (optional)" class="md-nav__link">
+    Configure Dynamic DNS (optional)
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -323,6 +366,36 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#raspberry-pi-settings" title="Raspberry Pi settings" class="md-nav__link">
+    Raspberry Pi settings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#router-settings" title="Router settings" class="md-nav__link">
+    Router settings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-dynamic-dns-optional" title="Configure Dynamic DNS (optional)" class="md-nav__link">
+    Configure Dynamic DNS (optional)
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -337,6 +410,100 @@
                 
                 
                 <h1 id="configure-ssh-over-ipv6">Configure SSH over IPv6</h1>
+<p>In this guide we will configure SSH on a Raspberry Pi so that it can be reached via IPv6 even from an outside network. This is especially useful if your ISP only grants a Dual-Stack Lite connection.</p>
+<h2 id="raspberry-pi-settings">Raspberry Pi settings</h2>
+<p>At first we have to enable the Pis IPv6-module by editing the <code>/etc/modules</code> file:</p>
+<pre><code class="console"># sudo vim /etc/modules
+</code></pre>
+
+<p>Add the following line at the end of the file:</p>
+<pre><code class="console">ipv6
+</code></pre>
+
+<p>After a reboot you can check if your Raspberry now has an IPv6 address by calling the statement <code>ip a</code>. To make sure that your SSH client also accepts connections via IPv6 and not only via IPv4, we have to adjust the corresponding config file:</p>
+<pre><code class="console"># sudo vim /etc/ssh/sshd_config
+</code></pre>
+
+<p>Look for a line that begins with <code>AddressFamily</code> and make sure it is not set to <code>inet</code> (IPv4 use only). You can decide if you would like to enable IPv4 and IPv6 connections (by using <code>any</code>), or if you go for IPv6 connections only (<code>inet6</code>). I decided to enable both communication protocols, so that my line looks like this:</p>
+<pre><code class="console">AddressFamily any
+</code></pre>
+
+<p>If you like, you can also disable password authentification for SSH access, this would improve security by forcing clients to use SSH-keys instead. For further instructions on how to setup SSH-keys take a look <a href="https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md">here</a>. To disable password authentification just set the following line in your <code>sshd_config</code>:</p>
+<pre><code class="console">PasswordAuthentication no
+</code></pre>
+
+<h2 id="router-settings">Router settings</h2>
+<p>To make sure your internet router also works with IPv6 DS Lite and that it assigns global IPv6 addresses to your local devices (including your Raspberry Pi), some adjustments might have to be made <em>(Note: These settings depend on the router you use. I'm using an AVM Fritzbox, whose configuration can differ from your router)</em>.
+At first I make sure my router uses a native IPv6-connection instead of IPv4 tunneling for IPv6 connectivity by setting the following in <strong>Zugangsdaten -&gt; IPv6</strong>:
+<img alt="Image" src="../images/ssh6_zugangsdatenIPv6.png" />
+Afterwards we configure our DHCPv6 server in <strong>Netzwerk -&gt; Netzwerkeinstellungen -&gt; IPv6 Adressen</strong>, so that it assigns IPv6 addresses from your address range to the devices you are port forwarding, making them directly addressable from the internet:
+<img alt="Image" src="../images/ssh6_dhcpv6.png" />
+<strong>TODO: Describe port forwarding</strong>
+At this point you should be able to connect to your Raspberry Pi from the internet via SSH using the following command:</p>
+<pre><code class="console"># ssh -6 &lt;user&gt;@&lt;global ipv6&gt;
+</code></pre>
+
+<h2 id="configure-dynamic-dns-optional">Configure Dynamic DNS (optional)</h2>
+<p>By configuring DynDNS you can connect to your Raspberry by using a hostname instead of the complete IPv6 address. I'm using a hostname from <a href="dynv6.com">dynv6.com</a> as they support IPv6, but of course you are free to choose a different service. After creating a hostname we have to make sure the hostname is always pointing at the current IPv6 address of the Pi. Therefor I wrote a small script based on a script from <a href="dynv6.com">dynv6.com</a>:</p>
+<pre><code class="console">#!/bin/sh -e
+hostname=&lt;yourhostname&gt;
+device=$2
+token=&lt;yourtoken&gt;
+file=$HOME/.dynv6.addr6
+[ -e $file ] &amp;&amp; old=`cat $file`
+
+if [ -z &quot;$netmask&quot; ]; then
+    netmask=128
+fi
+
+if [ -n &quot;$device&quot; ]; then
+    device=&quot;dev $device&quot;
+fi
+address=$(ip -6 addr list scope global $device | grep -v &quot; fd&quot; | sed -n 's/.*inet6 \([0-9a-f:]\+\).*/\1/p' | head -n 1)
+
+if [ -e /usr/bin/curl ]; then
+    bin=&quot;curl -fsS&quot;
+elif [ -e /usr/bin/wget ]; then
+    bin=&quot;wget -O-&quot;
+else
+    echo &quot;neither curl nor wget found&quot;
+    exit 1
+fi
+
+if [ -z &quot;$address&quot; ]; then
+    echo &quot;no IPv6 address found&quot;
+    exit 1
+fi
+
+# address with netmask
+current=$address/$netmask
+
+if [ &quot;$old&quot; = &quot;$current&quot; ]; then
+    echo &quot;IPv6 address unchanged&quot;
+    exit
+fi
+
+# send addresses to dynv6
+$bin &quot;http://dynv6.com/api/update?hostname=$hostname&amp;ipv6=$current&amp;token=$token&quot;
+$bin &quot;http://ipv4.dynv6.com/api/update?hostname=$hostname&amp;ipv4=auto&amp;token=$token&quot;
+
+# save current address
+echo $current &gt; $file
+</code></pre>
+
+<p>This script sends the latest IPv4 and IPv6 address to dynv6 if the adresses have changed, so that your hostname always points to the right direction. I have saved the script in my Raspberry Pis home directory in a file called dynv6.sh. Before we proceed, make sure you can execute the script:</p>
+<pre><code class="console"># chmod +x dynv6.sh
+</code></pre>
+
+<p>Now we can configure a cronjob that executes the script every 5 minutes, keeping the hostname updated:</p>
+<pre><code class="console"># crontab -e
+</code></pre>
+
+<p>Now add a line that looks like this:</p>
+<pre><code class="console">*/5 * * * * /path/to/dynv6.sh
+</code></pre>
+
+<p>Now you should be able to connect to your Raspberry by using <code>ssh -6 &lt;user&gt;@&lt;your hostname&gt;</code> instead of your IPv6 address only. You can also use your own subdomain name by configuring a CNAME record pointing to the DynDNS hostname in your DNS configuration.</p>
                 
                   
                 
@@ -385,6 +552,13 @@
         
       </div>
       
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/tippi09" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
     </div>
   </div>
 </footer>
