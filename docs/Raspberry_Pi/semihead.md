@@ -168,7 +168,7 @@ With the following options available:
 * **stopkodi** Stops Kodi, disables the Pis HDMI output once again and keeps the TV turned on (in case you want to use it differently).
 * **stopkodiandtv** Stops Kodi, disables the Pis HDMI output once again and turns the TV into standby mode.
 
-As a result just run the following command to start Kodi:
+As a result, just run the following command to start Kodi:
 ```console
 #  ssh -t «user»@«hostname» "sudo /path/to/kodi.sh start"
 ```
