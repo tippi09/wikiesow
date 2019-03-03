@@ -301,15 +301,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#download-latest-raspbian-desktop-image" title="Download latest Raspbian Desktop image" class="md-nav__link">
-    Download latest Raspbian Desktop image
+  <a href="#download-raspbian-image" title="Download Raspbian image" class="md-nav__link">
+    Download Raspbian image
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#write-raspbian-image-to-the-sd-card" title="Write Raspbian image to the SD Card" class="md-nav__link">
-    Write Raspbian image to the SD Card
+  <a href="#write-image-to-the-sd-card" title="Write image to the SD Card" class="md-nav__link">
+    Write image to the SD Card
   </a>
   
 </li>
@@ -351,14 +351,28 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#load-device-tree-for-the-hifiberry" title="Load device tree for the HiFiBerry" class="md-nav__link">
-    Load device tree for the HiFiBerry
+  <a href="#load-hifiberry-device-tree" title="Load HiFiBerry device tree" class="md-nav__link">
+    Load HiFiBerry device tree
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-kodi" title="Configure Kodi" class="md-nav__link">
+    Configure Kodi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-raspotify" title="Install Raspotify" class="md-nav__link">
+    Install Raspotify
+  </a>
   
 </li>
       
@@ -411,15 +425,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#download-latest-raspbian-desktop-image" title="Download latest Raspbian Desktop image" class="md-nav__link">
-    Download latest Raspbian Desktop image
+  <a href="#download-raspbian-image" title="Download Raspbian image" class="md-nav__link">
+    Download Raspbian image
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#write-raspbian-image-to-the-sd-card" title="Write Raspbian image to the SD Card" class="md-nav__link">
-    Write Raspbian image to the SD Card
+  <a href="#write-image-to-the-sd-card" title="Write image to the SD Card" class="md-nav__link">
+    Write image to the SD Card
   </a>
   
 </li>
@@ -461,14 +475,28 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#load-device-tree-for-the-hifiberry" title="Load device tree for the HiFiBerry" class="md-nav__link">
-    Load device tree for the HiFiBerry
+  <a href="#load-hifiberry-device-tree" title="Load HiFiBerry device tree" class="md-nav__link">
+    Load HiFiBerry device tree
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-kodi" title="Configure Kodi" class="md-nav__link">
+    Configure Kodi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-raspotify" title="Install Raspotify" class="md-nav__link">
+    Install Raspotify
+  </a>
   
 </li>
       
@@ -493,14 +521,14 @@
                 
                 <h1 id="multi-purpose-raspbian-setup">Multi-purpose Raspbian setup<a class="headerlink" href="#multi-purpose-raspbian-setup" title="Permanent link">&para;</a></h1>
 <p>In this guide we will setup Raspbian on a Raspberry Pi so that it can be used for many purposes while keeping energy consumption as low as possible. Therefor we mainly run Raspbian headless and enable graphical output only if necessary (e.g. for media uses with Kodi).</p>
-<h2 id="download-latest-raspbian-desktop-image">Download latest Raspbian Desktop image<a class="headerlink" href="#download-latest-raspbian-desktop-image" title="Permanent link">&para;</a></h2>
+<h2 id="download-raspbian-image">Download Raspbian image<a class="headerlink" href="#download-raspbian-image" title="Permanent link">&para;</a></h2>
 <p>First of all download the latest <strong>Raspbian Desktop</strong> image from <a href="https://www.raspberrypi.org/downloads/raspbian/">raspberrypi.org</a> <em>(Note: Do not use the Raspbian Lite image if you want to get graphical output as well)</em>.</p>
 <p>Extract the zip file and remove it afterwards. Make sure to adjust the date if necessary:</p>
 <div class="codehilite"><pre><span></span><span class="gp">#</span> unzip <span class="m">2018</span>-11-13-raspbian-stretch.zip
 <span class="gp">#</span> rm <span class="m">2018</span>-11-13-raspbian-stretch.zip
 </pre></div>
 
-<h2 id="write-raspbian-image-to-the-sd-card">Write Raspbian image to the SD Card<a class="headerlink" href="#write-raspbian-image-to-the-sd-card" title="Permanent link">&para;</a></h2>
+<h2 id="write-image-to-the-sd-card">Write image to the SD Card<a class="headerlink" href="#write-image-to-the-sd-card" title="Permanent link">&para;</a></h2>
 <p>To write the image we have to find our SD card first. On macOS we run <code class="codehilite">diskutil list</code> with the SD card still <strong>unplugged</strong>. Then you can insert the card and run <code class="codehilite">diskutil list</code> once more. You should see another device listed as a new entry just like this one:
 <div class="codehilite"><pre><span></span>/dev/disk2 (internal, physical):
    #:                       TYPE NAME                    SIZE       IDENTIFIER
@@ -568,9 +596,9 @@ hdmi_ignore_cec_init=1
 dtoverlay=pi3-disable-wifi
 dtoverlay=pi3-disable-bt
 </pre></div></p>
-<h3 id="load-device-tree-for-the-hifiberry">Load device tree for the HiFiBerry<a class="headerlink" href="#load-device-tree-for-the-hifiberry" title="Permanent link">&para;</a></h3>
+<h3 id="load-hifiberry-device-tree">Load HiFiBerry device tree<a class="headerlink" href="#load-hifiberry-device-tree" title="Permanent link">&para;</a></h3>
 <p>As my HiFi system is connected to my Raspberry, I am using a HiFiBerry board for an improved sound experience. To load the correct device tree and disable the onboard, I added the following lines to my <code class="codehilite">config.txt</code>:
-<div class="codehilite"><pre><span></span># Disabled onboard audio, loaded HiFiberry device tree
+<div class="codehilite"><pre><span></span># Disabled onboard audio, loaded HiFiBerry device tree
 # dtparam=audio=on
 dtoverlay=hifiberry-dac
 </pre></div></p>
@@ -586,6 +614,66 @@ You should see an output that looks something like this:
 Karte 0: sndrpihifiberry [snd_rpi_hifiberry_dac], Gerät 0: HifiBerry DAC HiFi pcm5102a-hifi-0 []
   Sub-Geräte: 1/1
   Sub-Gerät #0: subdevice #0
+</pre></div></p>
+<h2 id="configure-kodi">Configure Kodi<a class="headerlink" href="#configure-kodi" title="Permanent link">&para;</a></h2>
+<p>Because of the fact that HDMI output per default is disabled in this configuration, we have to find a way to bring it on when starting Kodi. For that reason, I wrote a small script called <code class="codehilite">kodi.sh</code>, that enables me to start Kodi via SSH:
+<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;start&quot;</span> <span class="o">]</span> <span class="c1"># Start Kodi, turn TV on and change TV output to Pi input</span>
+<span class="k">then</span>
+    vcgencmd display_power <span class="m">1</span>
+    <span class="nv">POWERSTATUS</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;pow 0&quot;</span> <span class="p">|</span> cec-client -s -d <span class="m">1</span><span class="k">)</span><span class="s2">&quot;</span>
+    <span class="k">case</span> <span class="s2">&quot;</span><span class="nv">$POWERSTATUS</span><span class="s2">&quot;</span> in
+        *standby* <span class="o">)</span> <span class="nb">echo</span> <span class="s2">&quot;on 0&quot;</span> <span class="p">|</span> cec-client -s
+                <span class="nb">echo</span> <span class="s2">&quot;as&quot;</span> <span class="p">|</span> cec-client RPI -s -d <span class="m">1</span><span class="p">;;</span>
+        *off* <span class="o">)</span> <span class="nb">echo</span> <span class="s2">&quot;on 0&quot;</span> <span class="p">|</span> cec-client -s
+                <span class="nb">echo</span> <span class="s2">&quot;as&quot;</span> <span class="p">|</span> cec-client RPI -s -d <span class="m">1</span><span class="p">;;</span>
+        *on* <span class="o">)</span> <span class="nb">echo</span> <span class="nb">echo</span> <span class="s2">&quot;as&quot;</span> <span class="p">|</span> cec-client RPI -s -d <span class="m">1</span><span class="p">;;</span>
+        * <span class="o">)</span> <span class="nb">echo</span> <span class="s2">&quot;Error: Unknown TV power status&quot;</span>
+    <span class="k">esac</span>
+    nohup kodi <span class="p">&amp;</span>
+<span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;stopkodi&quot;</span> <span class="o">]</span> <span class="c1"># Stop Kodi and disable Pi HDMI output again</span>
+<span class="k">then</span>
+    vcgencmd display_power <span class="m">0</span>
+    pkill kodi
+<span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;stopkodiandtv&quot;</span> <span class="o">]</span> <span class="c1"># Stop Kodi, disable PI HDMI output and set TV to standby</span>
+<span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;standby 0&quot;</span> <span class="p">|</span> cec-client -s
+    vcgencmd display_power <span class="m">0</span>
+    pkill kodi
+<span class="k">fi</span>
+</pre></div>
+After creating the script you have to make it executable by running:
+<div class="codehilite"><pre><span></span><span class="gp">#</span> chmod +x /path/to/kodi.sh
+</pre></div>
+As the script has to be run with <code class="codehilite">sudo</code>, we have to enable your user to do so by editing the <code class="codehilite">/etc/sudoers.tmp</code> file:
+<div class="codehilite"><pre><span></span><span class="gp">#</span>  sudo visudo
+</pre></div>
+Add the following line:
+<div class="codehilite"><pre><span></span>«user» ALL= NOPASSWD: /path/to/kodi.sh
+</pre></div>
+Now it should be possible to run the script by running:
+<div class="codehilite"><pre><span></span><span class="gp">#</span>  ssh -t «user»@«hostname» <span class="s2">&quot;sudo /path/to/kodi.sh «option»&quot;</span>
+</pre></div>
+With the following options available:</p>
+<ul>
+<li><strong>start</strong> Starts Kodi, turns the TV on if necessary by checking the current power status and changes the TV output to the Pis input.</li>
+<li><strong>stopkodi</strong> Stops Kodi, disables the Pis HDMI output once again and keeps the TV turned on (in case you want to use it differently).</li>
+<li><strong>stopkodiandtv</strong> Stops Kodi, disables the Pis HDMI output once again and turns the TV into standby mode.</li>
+</ul>
+<p>As a result just run the following command to start Kodi:
+<div class="codehilite"><pre><span></span><span class="gp">#</span>  ssh -t «user»@«hostname» <span class="s2">&quot;sudo /path/to/kodi.sh start&quot;</span>
+</pre></div>
+To make starting and stopping Kodi from my Mac easier, I have also written a script for <a href="https://getbitbar.com">Bitbar</a>. If you have problems with the Kodi output, update Kodi and check your overscan options in <code class="codehilite">/boot/config.txt</code>.</p>
+<h2 id="install-raspotify">Install Raspotify<a class="headerlink" href="#install-raspotify" title="Permanent link">&para;</a></h2>
+<p>If you would like to use your Raspberry Pi as a Spotify connect client, it is recommended to use the <a href="https://dtcooper.github.io/raspotify/">Raspotify</a> project. To install Raspotify we use the provided install script:
+<div class="codehilite"><pre><span></span><span class="gp">#</span> curl -L https://dtcooper.github.io/raspotify/install.sh &gt; raspotify.sh
+<span class="gp">#</span> chmod +x raspotify.sh
+</pre></div>
+If you are certain that the script is harmless, run it:
+<div class="codehilite"><pre><span></span><span class="gp">#</span> ./raspotify.sh
+</pre></div>
+To configure your Spotify client, just edit the <code class="codehilite">/etc/default/raspotify</code> file. For example, I changed the clients device name and the bitrate to higher quality by adding the lines:
+<div class="codehilite"><pre><span></span>DEVICE_NAME=&quot;HiFiPi&quot; # default is raspotify
+BITRATE=&quot;320&quot;        # default is 160
 </pre></div></p>
                 
                   
