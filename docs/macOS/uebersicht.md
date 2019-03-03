@@ -25,4 +25,4 @@ Now create a symlink from the `widgets-repository` to the `widgets-enabled` dire
 ```console
 # ln -s ../widgets-repository/* .
 ```
-**Now start Übersicht for the first time** and set `/Applications/Übersicht/widgets-enabled` as widget folder in the preferences. You can add your own plugins in the `widgets-enabled` directory and update my widget repository in `widgets-repository`.
+**Now start Übersicht for the first time**, set `/Applications/Übersicht/widgets-enabled` as widget folder in the preferences (available over the Übersicht icon in your menu bar) and restart Übersicht afterwards. You can add your own plugins in the `widgets-enabled` directory and update my widget repository in `widgets-repository`.
