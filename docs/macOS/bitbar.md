@@ -1,5 +1,5 @@
 # BitBar: Menu bar plugins
-With [BitBar](https://getbitbar.com) you are able to put anything in your macOS menu bar. I have a repository containing all the BitBar plugins I am using, including a plugin which makes it easy to control my Kodi configuration from [this guide](../Raspberry_Pi/semihead.md#configure-kodi).
+With [BitBar](https://getbitbar.com) you are able to put anything in your macOS menu bar. I have a [repository](https://github.com/tippi09/bitbar-plugins) containing all the BitBar plugins I am using, including a plugin which makes it easy to control my Kodi configuration from [this guide](../Raspberry_Pi/semihead.md#configure-kodi).
 
 First of all it is recommended to install BitBar by using [Homebrew](https://brew.sh/index_de):
 ```console
@@ -11,7 +11,7 @@ After installing you can create a directory for BitBar in `/Applications/` to ke
 # mkdir BitBar && mv BitBar.app BitBar/
 # cd BitBar/
 ```
-Now clone my bitbar-plugin repository in a directory called `plugins-repository`:
+Now clone my [bitbar-plugin repository](https://github.com/tippi09/bitbar-plugins) in a directory called `plugins-repository`:
 ```console
 # git clone git@github.com:tippi09/bitbar-plugins.git plugins-repository
 ```
