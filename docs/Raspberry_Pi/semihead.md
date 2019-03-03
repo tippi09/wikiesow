@@ -1,7 +1,7 @@
 # Multi-purpose Raspbian setup
 In this guide we will setup Raspbian on a Raspberry Pi so that it can be used for many purposes while keeping energy consumption as low as possible. Therefor we mainly run Raspbian headless and enable graphical output only if necessary (e.g. for media uses with Kodi).
 
-## Download latest Raspbian Desktop image
+## Download Raspbian image
 First of all download the latest **Raspbian Desktop** image from [raspberrypi.org](https://www.raspberrypi.org/downloads/raspbian/) *(Note: Do not use the Raspbian Lite image if you want to get graphical output as well)*.
 
 Extract the zip file and remove it afterwards. Make sure to adjust the date if necessary:
@@ -11,7 +11,7 @@ Extract the zip file and remove it afterwards. Make sure to adjust the date if n
 # rm 2018-11-13-raspbian-stretch.zip
 ```
 
-## Write Raspbian image to the SD Card
+## Write image to the SD Card
 
 To write the image we have to find our SD card first. On macOS we run `diskutil list` with the SD card still **unplugged**. Then you can insert the card and run `diskutil list` once more. You should see another device listed as a new entry just like this one:
 ```
@@ -97,10 +97,10 @@ As I do not need the Bluetooth of my Raspberry and with it being connected to th
 dtoverlay=pi3-disable-wifi
 dtoverlay=pi3-disable-bt
 ```
-### Load device tree for the HiFiBerry
+### Load HiFiBerry device tree
 As my HiFi system is connected to my Raspberry, I am using a HiFiBerry board for an improved sound experience. To load the correct device tree and disable the onboard, I added the following lines to my `config.txt`:
 ```
-# Disabled onboard audio, loaded HiFiberry device tree
+# Disabled onboard audio, loaded HiFiBerry device tree
 # dtparam=audio=on
 dtoverlay=hifiberry-dac
 ```
@@ -119,3 +119,57 @@ Karte 0: sndrpihifiberry [snd_rpi_hifiberry_dac], Gerät 0: HifiBerry DAC HiFi p
   Sub-Geräte: 1/1
   Sub-Gerät #0: subdevice #0
 ```
+## Configure Kodi
+Because of the fact that HDMI output per default is disabled in this configuration, we have to find a way to bring it on when starting Kodi. For that reason, I wrote a small script called `kodi.sh`, that enables me to start Kodi via SSH:
+```bash
+if [ "$1" = "start" ] # Start Kodi, turn TV on and change TV output to Pi input
+then
+    vcgencmd display_power 1
+    POWERSTATUS="$(echo "pow 0" | cec-client -s -d 1)"
+    case "$POWERSTATUS" in
+        *standby* ) echo "on 0" | cec-client -s
+                echo "as" | cec-client RPI -s -d 1;;
+        *off* ) echo "on 0" | cec-client -s
+                echo "as" | cec-client RPI -s -d 1;;
+        *on* ) echo echo "as" | cec-client RPI -s -d 1;;
+        * ) echo "Error: Unknown TV power status"
+    esac
+    nohup kodi &
+elif [ "$1" = "stopkodi" ] # Stop Kodi and disable Pi HDMI output again
+then
+    vcgencmd display_power 0
+    pkill kodi
+elif [ "$1" = "stopkodiandtv" ] # Stop Kodi, disable PI HDMI output and set TV to standby
+then
+    echo "standby 0" | cec-client -s
+    vcgencmd display_power 0
+    pkill kodi
+fi
+```
+After creating the script you have to make it executable by running:
+```console
+# chmod +x /path/to/kodi.sh
+```
+As the script has to be run with `sudo`, we have to enable your user to do so by editing the `/etc/sudoers.tmp` file:
+```console
+#  sudo visudo
+```
+Add the following line:
+```
+«user» ALL= NOPASSWD: /path/to/kodi.sh
+```
+Now it should be possible to run the script by running:
+```console
+#  ssh -t «user»@«hostname» "sudo /path/to/kodi.sh «option»"
+```
+With the following options available:
+
+* **start** Starts Kodi, turns the TV on if necessary by checking the current power status and changes the TV output to the Pis input.
+* **stopkodi** Stops Kodi, disables the Pis HDMI output once again and keeps the TV turned on (in case you want to use it differently).
+* **stopkodiandtv** Stops Kodi, disables the Pis HDMI output once again and turns the TV into standby mode.
+
+As a result just run the following command to start Kodi:
+```console
+#  ssh -t «user»@«hostname» "sudo /path/to/kodi.sh start"
+```
+To make starting and stopping Kodi from my Mac easier, I have also written a script for [Bitbar](https://getbitbar.com). If you have problems with the Kodi output, update Kodi and check your overscan options in `/boot/config.txt`.

@@ -7,7 +7,7 @@ At first we have to enable the Pis IPv6-module by editing the `/etc/modules` fil
 # sudo vim /etc/modules
 ```
 Add the following line at the end of the file:
-```console
+```
 ipv6
 ```
 After a reboot you can check if your Raspberry now has an IPv6 address by calling the statement `ip a`. To make sure that your SSH client also accepts connections via IPv6 and not only via IPv4, we have to adjust the corresponding config file:
@@ -15,11 +15,11 @@ After a reboot you can check if your Raspberry now has an IPv6 address by callin
 # sudo vim /etc/ssh/sshd_config
 ```
 Look for a line that begins with `AddressFamily` and make sure it is not set to `inet` (IPv4 use only). You can decide if you would like to enable IPv4 and IPv6 connections (by using `any`), or if you go for IPv6 connections only (`inet6`). I decided to enable both communication protocols, so that my line looks like this:
-```console
+```
 AddressFamily any
 ```
 If you like, you can also disable password authentification for SSH access, this would improve security by forcing clients to use SSH-keys instead. For further instructions on how to setup SSH-keys take a look [here](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md). To disable password authentification just set the following line in your `sshd_config`:
-```console
+```
 PasswordAuthentication no
 ```
 
@@ -84,14 +84,14 @@ echo $current > $file
 ```
 This script sends the latest IPv4 and IPv6 address to dynv6 if the adresses have changed, so that your hostname always points to the right direction. I have saved the script in my Raspberry Pis home directory in a file called dynv6.sh. Before we proceed, make sure you can execute the script:
 ```console
-# chmod +x dynv6.sh
+# chmod +x /path/to/dynv6.sh
 ```
 Now we can configure a cronjob that executes the script every 5 minutes, keeping the hostname updated:
 ```console
 # crontab -e
 ```
 Now add a line that looks like this:
-```console
+```
 */5 * * * * /path/to/dynv6.sh
 ```
 Now you should be able to connect to your Raspberry by using `ssh -6 <user>@<your hostname>` instead of your IPv6 address only. You can also use your own subdomain name by configuring a CNAME record pointing to the DynDNS hostname in your DNS configuration.
