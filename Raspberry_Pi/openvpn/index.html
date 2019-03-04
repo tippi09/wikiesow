@@ -518,7 +518,7 @@
 If you are certain that the <code class="codehilite">pivpn.sh</code> script is not harmful to your system, run it:
 <div class="codehilite"><pre><span></span><span class="gp">#</span> ./pivpn.sh
 </pre></div>
-Now follow these steps as described by <a href="https://wiki.rngcntr.de/Raspberry_Pi/OpenVPN.html#run-the-pivpn-install-script">rngcntr</a> to complete the configuration process:</p>
+Now follow these steps as described by <a href="https://wiki.rngcntr.de/Raspberry_Pi/OpenVPN.html#run-the-pivpn-install-script">rngcntr</a> to complete the configuration:</p>
 <ol>
 <li>Confirm the current network settings and make sure the shown IP address (eg. 192.168.2.110) is always assigned to this device by the router.</li>
 <li>Choose the user «openvpn».</li>
@@ -539,7 +539,7 @@ Search for the line <code class="codehilite">proto udp</code> and change it to <
 <p>To add a client just run <code class="codehilite">pivpn add</code> and set a name and password for the client configuration. Per default, the configuration is stored in <code class="codehilite">/home/«openvpn»/ovpns</code>. To enable client side IPv6 connections, edit the configuration file:
 <div class="codehilite"><pre><span></span><span class="gp">#</span> sudo vim /home/«openvpn»/ovpns/«configName».ovpn
 </pre></div>
-In this file once more search for the line <code class="codehilite">proto udp</code> and change it to <code class="codehilite">proto udp6</code>. Now copy the <code class="codehilite"><span class="na">.ovpn</span></code> file to your client via <code class="codehilite">scp</code> and add the configuration to your OpenVPN client.</p>
+Once more search for the line <code class="codehilite">proto udp</code> and change it to <code class="codehilite">proto udp6</code>. Now copy the <code class="codehilite"><span class="na">.ovpn</span></code> file to your client via <code class="codehilite">scp</code> and add the configuration to your OpenVPN client.</p>
                 
                   
                 
