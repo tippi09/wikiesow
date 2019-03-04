@@ -30,7 +30,7 @@ If you are certain that the `pivpn.sh` script is not harmful to your system, run
 ```console
 # ./pivpn.sh
 ```
-Now follow these steps as described by [rngcntr](https://wiki.rngcntr.de/Raspberry_Pi/OpenVPN.html#run-the-pivpn-install-script) to complete the configuration process:
+Now follow these steps as described by [rngcntr](https://wiki.rngcntr.de/Raspberry_Pi/OpenVPN.html#run-the-pivpn-install-script) to complete the configuration:
 
 1. Confirm the current network settings and make sure the shown IP address (eg. 192.168.2.110) is always assigned to this device by the router.
 2. Choose the user «openvpn».
@@ -57,4 +57,4 @@ To add a client just run `pivpn add` and set a name and password for the client 
 ```console
 # sudo vim /home/«openvpn»/ovpns/«configName».ovpn
 ```
-In this file once more search for the line `proto udp` and change it to `proto udp6`. Now copy the `.ovpn` file to your client via `scp` and add the configuration to your OpenVPN client.
+Once more search for the line `proto udp` and change it to `proto udp6`. Now copy the `.ovpn` file to your client via `scp` and add the configuration to your OpenVPN client.
