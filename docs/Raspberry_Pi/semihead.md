@@ -172,7 +172,7 @@ As a result, just run the following command to start Kodi:
 ```console
 #  ssh -t «user»@«hostname» "sudo /path/to/kodi.sh start"
 ```
-To make starting and stopping Kodi from my Mac easier, I have also written a script for [Bitbar](https://getbitbar.com). If you have problems with the Kodi output, update Kodi and check your overscan options in `/boot/config.txt`.
+To make starting and stopping Kodi from my Mac easier, I have also written a script for [Bitbar](https://getbitbar.com). My BitBar setup is documented [here](../macOS/bitbar.md) as well. If you have problems with the Kodi output, update Kodi and check your overscan options in `/boot/config.txt`.
 
 ## Install Raspotify
 If you would like to use your Raspberry Pi as a Spotify connect client, it is recommended to use the [Raspotify](https://dtcooper.github.io/raspotify/) project. To install Raspotify we use the provided install script:
