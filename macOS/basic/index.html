@@ -36,7 +36,7 @@
     
     
       
-        <title>BitBar: Menu bar plugins - Coding</title>
+        <title>Basic macOS setup - Coding</title>
       
     
     
@@ -94,7 +94,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#bitbar-menu-bar-plugins" tabindex="1" class="md-skip">
+      <a href="#basic-macos-setup" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -119,7 +119,7 @@
               Coding
             </span>
             <span class="md-header-nav__topic">
-              BitBar: Menu bar plugins
+              Basic macOS setup
             </span>
           
         </div>
@@ -320,18 +320,6 @@
           
           
 
-
-  <li class="md-nav__item">
-    <a href="../basic/" title="Basic macOS setup" class="md-nav__link">
-      Basic macOS setup
-    </a>
-  </li>
-
-        
-          
-          
-          
-
   
 
 
@@ -342,10 +330,65 @@
       
     
     
-    <a href="./" title="BitBar: Menu bar plugins" class="md-nav__link md-nav__link--active">
-      BitBar: Menu bar plugins
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Basic macOS setup
+      </label>
+    
+    <a href="./" title="Basic macOS setup" class="md-nav__link md-nav__link--active">
+      Basic macOS setup
     </a>
     
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install-homebrew" title="Install Homebrew" class="md-nav__link">
+    Install Homebrew
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-thefuck" title="Install thefuck" class="md-nav__link">
+    Install thefuck
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-vim-and-zsh" title="Configure Vim and zsh" class="md-nav__link">
+    Configure Vim and zsh
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../bitbar/" title="BitBar: Menu bar plugins" class="md-nav__link">
+      BitBar: Menu bar plugins
+    </a>
   </li>
 
         
@@ -383,6 +426,36 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install-homebrew" title="Install Homebrew" class="md-nav__link">
+    Install Homebrew
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-thefuck" title="Install thefuck" class="md-nav__link">
+    Install thefuck
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-vim-and-zsh" title="Configure Vim and zsh" class="md-nav__link">
+    Configure Vim and zsh
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -393,32 +466,51 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/tippi09/wikiesow/edit/master/docs/macOS/bitbar.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/tippi09/wikiesow/edit/master/docs/macOS/basic.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="bitbar-menu-bar-plugins">BitBar: Menu bar plugins<a class="headerlink" href="#bitbar-menu-bar-plugins" title="Permanent link">&para;</a></h1>
-<p>With <a href="https://getbitbar.com">BitBar</a> you are able to put anything in your macOS menu bar. I have a <a href="https://github.com/tippi09/bitbar-plugins">repository</a> containing all the BitBar plugins I am using, including a plugin which makes it easy to control my Kodi configuration from <a href="../../Raspberry_Pi/semihead/#configure-kodi">this guide</a>.</p>
-<p>First of all it is recommended to install BitBar by using <a href="https://brew.sh/index_de">Homebrew</a>:
-<div class="codehilite"><pre><span></span><span class="gp">#</span> brew cask install bitbar
+                <h1 id="basic-macos-setup">Basic macOS setup<a class="headerlink" href="#basic-macos-setup" title="Permanent link">&para;</a></h1>
+<p>In this guide I will explain my basic macOS setup which includes my <a href="https://www.vim.org">Vim</a> and zsh configuration, as well as the installment of useful software like <a href="https://brew.sh/index_de">Homebrew</a>.</p>
+<h2 id="install-homebrew">Install Homebrew<a class="headerlink" href="#install-homebrew" title="Permanent link">&para;</a></h2>
+<p>Sadly macOS does not include a preinstalled package manager. This problem can be solved with Homebrew, which can be installed easily by running:
+<div class="codehilite"><pre><span></span><span class="gp">#</span> /usr/bin/ruby -e <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">&quot;</span>
 </pre></div>
-After installing you can create a directory for BitBar in <code class="codehilite">/Applications/</code> to keep your plugins organized with the app itself:
-<div class="codehilite"><pre><span></span><span class="gp">#</span> <span class="nb">cd</span> /Applications/
-<span class="gp">#</span> mkdir BitBar <span class="o">&amp;&amp;</span> mv BitBar.app BitBar/
-<span class="gp">#</span> <span class="nb">cd</span> BitBar/
+When the installation process has finished you can install and uninstall software simple and clean by using <code class="codehilite">brew install</code> or <code class="codehilite">brew install</code>. To search for a software package, just type <code class="codehilite">brew search</code>.</p>
+<h2 id="install-thefuck">Install thefuck<a class="headerlink" href="#install-thefuck" title="Permanent link">&para;</a></h2>
+<p>With Homebrew, we can now install <a href="https://github.com/nvbn/thefuck">thefuck</a>, a handy tool which is able to correct your previous console command.
+<div class="codehilite"><pre><span></span><span class="gp">#</span> brew install thefuck
+</pre></div></p>
+<details class="note"><summary>Configure thefuck in your shells startup script</summary><p>This step is only necessary if you do not want to use my zsh setup described here. In that case, you have to add the following command in your <code class="codehilite"><span class="na">.bash_profile</span></code>, <code class="codehilite"><span class="na">.bashrc</span></code>, <code class="codehilite"><span class="na">.zshrc</span></code> or another startup script:
+<div class="codehilite"><pre><span></span><span class="gp">#</span> <span class="nb">eval</span> <span class="k">$(</span>thefuck --alias<span class="k">)</span>
 </pre></div>
-Now clone my <a href="https://github.com/tippi09/bitbar-plugins">bitbar-plugin repository</a> in a directory called <code class="codehilite">plugins-repository</code>:
-<div class="codehilite"><pre><span></span><span class="gp">#</span> git clone git@github.com:tippi09/bitbar-plugins.git plugins-repository
+Now you should be able to type <code class="codehilite">fuck</code> in your terminal and get your commands corrected if they fail.</p>
+</details>
+<p>The evaluation of <code class="codehilite">thefuck</code> is already contained in the following <code class="codehilite"><span class="na">.zshrc</span></code> configuration I am using. If you think <code class="codehilite">fuck</code> is a too vulgar alias for this command, you are of course free to change it to anything you like.</p>
+<h2 id="configure-vim-and-zsh">Configure Vim and zsh<a class="headerlink" href="#configure-vim-and-zsh" title="Permanent link">&para;</a></h2>
+<p>For my Vim and zsh configuration I am using the <a href="https://bitbucket.org/rngcntr/.dotfiles">.dotfiles repository by rngcntr</a>. First we have to clone the repository:
+<div class="codehilite"><pre><span></span><span class="gp">#</span> <span class="nb">cd</span> ~
+<span class="gp">#</span> git clone git@bitbucket.org:rngcntr/.dotfiles.git .dotfiles
+<span class="gp">#</span> <span class="nb">cd</span> .dotfiles/
+<span class="gp">#</span> git submodule init
+<span class="gp">#</span> git submodule update
+</pre></div></p>
+<p>Now we can create symlinks to use the configuration files in our <code class="codehilite">~/.dotfiles</code> directory. First we set our <code class="codehilite"><span class="na">.vimrc</span></code>, install <a href="https://github.com/VundleVim/Vundle.vim">Vundle</a> with plugins and afterwards link the <code class="codehilite"><span class="na">.zshrc</span></code>:
+<div class="codehilite"><pre><span></span><span class="gp">#</span> <span class="nb">cd</span> ~
+<span class="gp">#</span> git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+<span class="gp">#</span> ln -s .dotfiles/.vimrc .vimrc
+<span class="gp">#</span> vim +PluginInstall +qall
+<span class="gp">#</span> ln -s .dotfiles/.zshrc .zshrc
+</pre></div></p>
+<p>You can check if the links work by running <code class="codehilite">ls -l .vimrc</code> and <code class="codehilite">ls -l .zshrc</code> in your home directory. You should see an output that looks similar to this:
+<div class="codehilite"><pre><span></span><span class="na">.vimrc</span> <span class="p">-</span><span class="err">&gt;</span> <span class="no">.dotfiles</span><span class="err">/</span><span class="no">.vimrc</span>
+<span class="na">.zshrc</span> <span class="p">-</span><span class="err">&gt;</span> <span class="no">.dotfiles</span><span class="err">/</span><span class="no">.zshrc</span>
 </pre></div>
-To separate your own plugins from my repository we first create another directory called <code class="codehilite">plugins-enabled</code>: 
-<div class="codehilite"><pre><span></span><span class="gp">#</span> mkdir plugins-enabled <span class="o">&amp;&amp;</span> <span class="nb">cd</span> plugins-enabled
-</pre></div>
-Now create symlinks from the <code class="codehilite">plugins-repository</code> to the <code class="codehilite">plugins-enabled</code> directory. You can choose if you would like to use all of my BitBar plugins:
-<div class="codehilite"><pre><span></span><span class="gp">#</span> ln -s ../plugins-repository/* .
-</pre></div>
-Or just some of them like my Kodi addon:
-<div class="codehilite"><pre><span></span><span class="gp">#</span> ln -s ../plugins-repository/kodi.sh .
-</pre></div>
-<strong>Now start BitBar for the first time</strong> and set <code class="codehilite">/Applications/BitBar/plugins-enabled</code> as plugin folder. You can add your own plugins in the <code class="codehilite">plugins-enabled</code> directory and update my plugin repository in <code class="codehilite">plugins-repository</code>.</p>
+Now we improve the terminal experience by installing and configuring <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a>:
+<div class="codehilite"><pre><span></span><span class="gp">#</span> <span class="nb">cd</span> ~
+<span class="gp">#</span> ln -s .dotfiles/.oh-my-zsh .oh-my-zsh
+<span class="gp">#</span> ./.oh-my-zsh/tools/install.sh
+</pre></div></p>
+<p>After installing oh-my-zsh the zsh should be set as your default shell. If this is not the case, just run <code class="codehilite">chsh -s $(which zsh)</code>.</p>
                 
                   
                 
@@ -439,7 +531,7 @@ Or just some of them like my Kodi addon:
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../basic/" title="Basic macOS setup" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../Raspberry_Pi/ssh6/" title="Configure SSH over IPv6" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -448,19 +540,19 @@ Or just some of them like my Kodi addon:
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Basic macOS setup
+                Configure SSH over IPv6
               </span>
             </div>
           </a>
         
         
-          <a href="../uebersicht/" title="Übersicht: System monitor configuration" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../bitbar/" title="BitBar: Menu bar plugins" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Übersicht: System monitor configuration
+                BitBar: Menu bar plugins
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
