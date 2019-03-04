@@ -10,6 +10,8 @@
 
 ## macOS
 
+[Basic macOS setup](macOS/basic.md)
+
 [Übersicht: System monitor configuration](macOS/uebersicht.md)
 
 [BitBar: Menu bar plugins](macOS/bitbar.md)
