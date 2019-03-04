@@ -1,4 +1,4 @@
-# Configure SSH over IPv6
+# SSH over IPv6
 In this guide we will configure SSH on a Raspberry Pi so that it can be reached via IPv6 even from an outside network. This is especially useful if your ISP only grants a Dual-Stack Lite connection.
 
 ## Raspberry Pi settings

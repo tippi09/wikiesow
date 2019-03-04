@@ -4,7 +4,9 @@
 
 [HiFiPi: Multi-purpose Raspbian setup](Raspberry_Pi/semihead.md)
 
-[Configure SSH over IPv6](Raspberry_Pi/ssh6.md)
+[Configure SSH with IPv6 support](Raspberry_Pi/ssh6.md)
+
+[OpenVPN Server with IPv6 support](Raspberry_Pi/openvpn.md)
 
 [Improving Raspotify by configuring a LIRC IR remote (coming soon)](Raspberry_Pi/irremote.md)
 
