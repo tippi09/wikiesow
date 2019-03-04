@@ -36,7 +36,7 @@
     
     
       
-        <title>SSH over IPv6 - Coding</title>
+        <title>OpenVPN over IPv6 - Coding</title>
       
     
     
@@ -94,7 +94,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#ssh-over-ipv6" tabindex="1" class="md-skip">
+      <a href="#openvpn-over-ipv6" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -119,7 +119,7 @@
               Coding
             </span>
             <span class="md-header-nav__topic">
-              SSH over IPv6
+              OpenVPN over IPv6
             </span>
           
         </div>
@@ -272,11 +272,70 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../openvpn/" title="OpenVPN over IPv6" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        OpenVPN over IPv6
+      </label>
+    
+    <a href="./" title="OpenVPN over IPv6" class="md-nav__link md-nav__link--active">
       OpenVPN over IPv6
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-an-openvpn-user" title="Create an openvpn user" class="md-nav__link">
+    Create an openvpn user
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#download-and-run-pivpn-script" title="Download and run PiVPN script" class="md-nav__link">
+    Download and run PiVPN script
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-ipv6-on-server" title="Enable IPv6 on server" class="md-nav__link">
+    Enable IPv6 on server
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-clients" title="Add clients" class="md-nav__link">
+    Add clients
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -296,63 +355,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        SSH over IPv6
-      </label>
-    
-    <a href="./" title="SSH over IPv6" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../ssh6/" title="SSH over IPv6" class="md-nav__link">
       SSH over IPv6
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#raspberry-pi-settings" title="Raspberry Pi settings" class="md-nav__link">
-    Raspberry Pi settings
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#router-settings" title="Router settings" class="md-nav__link">
-    Router settings
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-dynamic-dns-optional" title="Configure Dynamic DNS (optional)" class="md-nav__link">
-    Configure Dynamic DNS (optional)
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -442,22 +449,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#raspberry-pi-settings" title="Raspberry Pi settings" class="md-nav__link">
-    Raspberry Pi settings
+  <a href="#create-an-openvpn-user" title="Create an openvpn user" class="md-nav__link">
+    Create an openvpn user
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#router-settings" title="Router settings" class="md-nav__link">
-    Router settings
+  <a href="#download-and-run-pivpn-script" title="Download and run PiVPN script" class="md-nav__link">
+    Download and run PiVPN script
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configure-dynamic-dns-optional" title="Configure Dynamic DNS (optional)" class="md-nav__link">
-    Configure Dynamic DNS (optional)
+  <a href="#enable-ipv6-on-server" title="Enable IPv6 on server" class="md-nav__link">
+    Enable IPv6 on server
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-clients" title="Add clients" class="md-nav__link">
+    Add clients
   </a>
   
 </li>
@@ -478,94 +492,54 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/tippi09/wikiesow/edit/master/docs/Raspberry_Pi/ssh6.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/tippi09/wikiesow/edit/master/docs/Raspberry_Pi/openvpn.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="ssh-over-ipv6">SSH over IPv6<a class="headerlink" href="#ssh-over-ipv6" title="Permanent link">&para;</a></h1>
-<p>In this guide we will configure SSH on a Raspberry Pi so that it can be reached via IPv6 even from an outside network. This is especially useful if your ISP only grants a Dual-Stack Lite connection.</p>
-<h2 id="raspberry-pi-settings">Raspberry Pi settings<a class="headerlink" href="#raspberry-pi-settings" title="Permanent link">&para;</a></h2>
-<p>At first we have to enable the Pis IPv6-module by editing the <code class="codehilite">/etc/modules</code> file:
-<div class="codehilite"><pre><span></span><span class="gp">#</span> sudo vim /etc/modules
-</pre></div>
-Add the following line at the end of the file:
-<div class="codehilite"><pre><span></span>ipv6
-</pre></div>
-After a reboot you can check if your Raspberry now has an IPv6 address by calling the statement <code class="codehilite">ip a</code>. To make sure that your SSH client also accepts connections via IPv6 and not only via IPv4, we have to adjust the corresponding config file:
-<div class="codehilite"><pre><span></span><span class="gp">#</span> sudo vim /etc/ssh/sshd_config
-</pre></div>
-Look for a line that begins with <code class="codehilite">AddressFamily</code> and make sure it is not set to <code class="codehilite">inet</code> (IPv4 use only). You can decide if you would like to enable IPv4 and IPv6 connections (by using <code class="codehilite">any</code>), or if you go for IPv6 connections only (<code class="codehilite">inet6</code>). I decided to enable both communication protocols, so that my line looks like this:
-<div class="codehilite"><pre><span></span>AddressFamily any
-</pre></div>
-If you like, you can also disable password authentification for SSH access, this would improve security by forcing clients to use SSH-keys instead. For further instructions on how to setup SSH-keys take a look <a href="https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md">here</a>. To disable password authentification just set the following line in your <code class="codehilite">sshd_config</code>:
-<div class="codehilite"><pre><span></span>PasswordAuthentication no
+                <h1 id="openvpn-over-ipv6">OpenVPN over IPv6<a class="headerlink" href="#openvpn-over-ipv6" title="Permanent link">&para;</a></h1>
+<p>As I only have a DS-Lite connection, I have to connect to my Raspberry Pi OpenVPN server via IPv6. The steps to accomplish this are described in this guide.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This guide only provides IPv6 connectivity outside the tunnel. For more information on IPv6 support in OpenVPN take a look <a href="https://community.openvpn.net/openvpn/wiki/IPv6">here</a>.</p>
+</div>
+<h2 id="create-an-openvpn-user">Create an openvpn user<a class="headerlink" href="#create-an-openvpn-user" title="Permanent link">&para;</a></h2>
+<p>To avoid conflicts with other users on your Raspberry, we first configure a new user called «openvpn», which is used for the OpenVPN server only.
+<div class="codehilite"><pre><span></span><span class="gp">#</span> adduser «openvpn»
+<span class="gp">#</span> passwd «openvpn»
+<span class="gp">#</span> sudo usermod -a -G sudo «openvpn»
 </pre></div></p>
-<h2 id="router-settings">Router settings<a class="headerlink" href="#router-settings" title="Permanent link">&para;</a></h2>
-<p>To make sure your internet router also works with IPv6 DS Lite and that it assigns global IPv6 addresses to your local devices (including your Raspberry Pi), some adjustments might have to be made <em>(Note: These settings depend on the router you use. I'm using an AVM Fritzbox, whose configuration can differ from your router)</em>.
-At first I make sure my router uses a native IPv6-connection instead of IPv4 tunneling for IPv6 connectivity by setting the following in <strong>Zugangsdaten -&gt; IPv6</strong>:
-<img alt="Image" src="../images/ssh6_zugangsdatenIPv6.png" />
-Afterwards we configure our DHCPv6 server in <strong>Netzwerk -&gt; Netzwerkeinstellungen -&gt; IPv6 Adressen</strong>, so that it assigns IPv6 addresses from your address range to the devices you are port forwarding, making them directly addressable from the internet:
-<img alt="Image" src="../images/ssh6_dhcpv6.png" />
-<strong>TODO: Describe port forwarding</strong>
-At this point you should be able to connect to your Raspberry Pi from the internet via SSH using the following command:
-<div class="codehilite"><pre><span></span><span class="gp">#</span> ssh -6 &lt;user&gt;@&lt;global ipv6&gt;
+<p>After creating the user, we can now login as «openvpn»:
+<div class="codehilite"><pre><span></span><span class="gp">#</span> su - «openvpn»
 </pre></div></p>
-<h2 id="configure-dynamic-dns-optional">Configure Dynamic DNS (optional)<a class="headerlink" href="#configure-dynamic-dns-optional" title="Permanent link">&para;</a></h2>
-<p>By configuring DynDNS you can connect to your Raspberry by using a hostname instead of the complete IPv6 address. I'm using a hostname from <a href="https://dynv6.com">dynv6.com</a> as they support IPv6, but of course you are free to choose a different service. After creating a hostname we have to make sure the hostname is always pointing at the current IPv6 address of the Pi. Therefor I wrote a small script based on a script from <a href="https://dynv6.com">dynv6.com</a>:
-<div class="codehilite"><pre><span></span><span class="ch">#!/bin/sh -e</span>
-<span class="nv">hostname</span><span class="o">=</span>&lt;yourhostname&gt;
-<span class="nv">device</span><span class="o">=</span><span class="nv">$2</span>
-<span class="nv">token</span><span class="o">=</span>&lt;yourtoken&gt;
-<span class="nv">file</span><span class="o">=</span><span class="nv">$HOME</span>/.dynv6.addr6
-<span class="o">[</span> -e <span class="nv">$file</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nv">old</span><span class="o">=</span><span class="sb">`</span>cat <span class="nv">$file</span><span class="sb">`</span>
-
-<span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;</span><span class="nv">$netmask</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nv">netmask</span><span class="o">=</span><span class="m">128</span>
-<span class="k">fi</span>
-
-<span class="k">if</span> <span class="o">[</span> -n <span class="s2">&quot;</span><span class="nv">$device</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nv">device</span><span class="o">=</span><span class="s2">&quot;dev </span><span class="nv">$device</span><span class="s2">&quot;</span>
-<span class="k">fi</span>
-<span class="nv">address</span><span class="o">=</span><span class="k">$(</span>ip -6 addr list scope global <span class="nv">$device</span> <span class="p">|</span> grep -v <span class="s2">&quot; fd&quot;</span> <span class="p">|</span> sed -n <span class="s1">&#39;s/.*inet6 \([0-9a-f:]\+\).*/\1/p&#39;</span> <span class="p">|</span> head -n <span class="m">1</span><span class="k">)</span>
-
-<span class="k">if</span> <span class="o">[</span> -e /usr/bin/curl <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nv">bin</span><span class="o">=</span><span class="s2">&quot;curl -fsS&quot;</span>
-<span class="k">elif</span> <span class="o">[</span> -e /usr/bin/wget <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nv">bin</span><span class="o">=</span><span class="s2">&quot;wget -O-&quot;</span>
-<span class="k">else</span>
-    <span class="nb">echo</span> <span class="s2">&quot;neither curl nor wget found&quot;</span>
-    <span class="nb">exit</span> <span class="m">1</span>
-<span class="k">fi</span>
-
-<span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;</span><span class="nv">$address</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">&quot;no IPv6 address found&quot;</span>
-    <span class="nb">exit</span> <span class="m">1</span>
-<span class="k">fi</span>
-
-<span class="c1"># address with netmask</span>
-<span class="nv">current</span><span class="o">=</span><span class="nv">$address</span>/<span class="nv">$netmask</span>
-
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$old</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="nv">$current</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">&quot;IPv6 address unchanged&quot;</span>
-    <span class="nb">exit</span>
-<span class="k">fi</span>
-
-<span class="c1"># send addresses to dynv6</span>
-<span class="nv">$bin</span> <span class="s2">&quot;http://dynv6.com/api/update?hostname=</span><span class="nv">$hostname</span><span class="s2">&amp;ipv6=</span><span class="nv">$current</span><span class="s2">&amp;token=</span><span class="nv">$token</span><span class="s2">&quot;</span>
-<span class="nv">$bin</span> <span class="s2">&quot;http://ipv4.dynv6.com/api/update?hostname=</span><span class="nv">$hostname</span><span class="s2">&amp;ipv4=auto&amp;token=</span><span class="nv">$token</span><span class="s2">&quot;</span>
-
-<span class="c1"># save current address</span>
-<span class="nb">echo</span> <span class="nv">$current</span> &gt; <span class="nv">$file</span>
+<h2 id="download-and-run-pivpn-script">Download and run PiVPN script<a class="headerlink" href="#download-and-run-pivpn-script" title="Permanent link">&para;</a></h2>
+<p>To install and configure the OpenVPN server, we can use the <a href="http://www.pivpn.io">PiVPN</a> install script:
+<div class="codehilite"><pre><span></span><span class="gp">#</span> curl -L install.pivpn.io &gt; pivpn.sh
+<span class="gp">#</span> chmod +x pivpn.sh
 </pre></div>
-This script sends the latest IPv4 and IPv6 address to dynv6 if the adresses have changed, so that your hostname always points to the right direction. I have saved the script in my Raspberry Pis home directory in a file called dynv6.sh. Before we proceed, make sure you can execute the script:
-<div class="codehilite"><pre><span></span><span class="gp">#</span> chmod +x /path/to/dynv6.sh
+If you are certain that the <code class="codehilite">pivpn.sh</code> script is not harmful to your system, run it:
+<div class="codehilite"><pre><span></span><span class="gp">#</span> ./pivpn.sh
 </pre></div>
-Now we can configure a cronjob that executes the script every 5 minutes, keeping the hostname updated:
-<div class="codehilite"><pre><span></span><span class="gp">#</span> crontab -e
+Now follow these steps as described by <a href="https://wiki.rngcntr.de/Raspberry_Pi/OpenVPN.html#run-the-pivpn-install-script">rngcntr</a> to complete the configuration process:</p>
+<ol>
+<li>Confirm the current network settings and make sure the shown IP address (eg. 192.168.2.110) is always assigned to this device by the router.</li>
+<li>Choose the user «openvpn».</li>
+<li>When asked, select UDP as a protocol.</li>
+<li>Confirm the default OpenVPN port 1194.</li>
+<li>Select ECDSA encryption strength. (Recommended: 256-bit)</li>
+<li>If you use DNS, enter the domain name.</li>
+<li>Reboot after the installation has finished</li>
+</ol>
+<h2 id="enable-ipv6-on-server">Enable IPv6 on server<a class="headerlink" href="#enable-ipv6-on-server" title="Permanent link">&para;</a></h2>
+<p>Now we can add IPv6 support to the server by editing the config file of the OpenVPN server:
+<div class="codehilite"><pre><span></span><span class="gp">#</span> sudo vim /etc/openvpn/server.conf
 </pre></div>
-Now add a line that looks like this:
-<div class="codehilite"><pre><span></span>*/5 * * * * /path/to/dynv6.sh
+Search for the line <code class="codehilite">proto udp</code> and change it to <code class="codehilite">proto udp6</code> so that it looks like this:
+<div class="codehilite"><pre><span></span>proto udp6
+</pre></div></p>
+<h2 id="add-clients">Add clients<a class="headerlink" href="#add-clients" title="Permanent link">&para;</a></h2>
+<p>To add a client just run <code class="codehilite">pivpn add</code> and set a name and password for the client configuration. Per default, the configuration is stored in <code class="codehilite">/home/«openvpn»/ovpns</code>. To enable client side IPv6 connections, edit the configuration file:
+<div class="codehilite"><pre><span></span><span class="gp">#</span> sudo vim /home/«openvpn»/ovpns/«configName».ovpn
 </pre></div>
-Now you should be able to connect to your Raspberry by using <code class="codehilite">ssh -6 &lt;user&gt;@&lt;your hostname&gt;</code> instead of your IPv6 address only. You can also use your own subdomain name by configuring a CNAME record pointing to the DynDNS hostname in your DNS configuration.</p>
+In this file once more search for the line <code class="codehilite">proto udp</code> and change it to <code class="codehilite">proto udp6</code>. Now copy the <code class="codehilite"><span class="na">.ovpn</span></code> file to your client via <code class="codehilite">scp</code> and add the configuration to your OpenVPN client.</p>
                 
                   
                 
@@ -586,7 +560,7 @@ Now you should be able to connect to your Raspberry by using <code class="codehi
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../semihead/" title="Multi-purpose Raspbian setup" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../irremote/" title="Improving Raspotify by configuring a LIRC IR remote (coming soon)" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -595,19 +569,19 @@ Now you should be able to connect to your Raspberry by using <code class="codehi
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Multi-purpose Raspbian setup
+                Improving Raspotify by configuring a LIRC IR remote (coming soon)
               </span>
             </div>
           </a>
         
         
-          <a href="../../macOS/basic/" title="Basic macOS setup" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../semihead/" title="Multi-purpose Raspbian setup" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Basic macOS setup
+                Multi-purpose Raspbian setup
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
