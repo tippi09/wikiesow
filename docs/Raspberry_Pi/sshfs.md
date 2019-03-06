@@ -65,12 +65,10 @@ if [ "$1" = "mount" ]; then
     mkdir /Users/«user»/«mountdirectory»
     ssh -t «piuser»@«pihostname» "sudo ./pimount.sh $1" # Mount drive on Raspberry
     sshfs «piuser»@«pihostname»:/home/«piuser»/«pimountdirectory» /Users/«user»/«mountdirectory»
-    exit
 elif [ "$1" = "unmount" ]; then
     ssh -t «piuser»@«pihostname» "sudo ./pimount.sh $1" # Run unmount script on Raspberry
     umount -f /Users/«user»/«mountdirectory»
     rm -rf /Users/«user»/«mountdirectory»
-    exit
 fi
 ```
 Once again make it executable with `chmod +x «pimount.sh»`. Now I have added two aliases in my `.zshrc`, to mount the hard drive with a single command in the terminal:
