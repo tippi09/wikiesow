@@ -8,7 +8,9 @@
 
 [OpenVPN Server with IPv6 support](Raspberry_Pi/openvpn.md)
 
-[Improving Raspotify by configuring a LIRC IR remote (coming soon)](Raspberry_Pi/irremote.md)
+[SSHFS hard drive sharing](Raspberry_Pi/sshfs.md)
+
+[//]: # ([Improving Raspotify by configuring a LIRC IR remote (coming soon)](Raspberry_Pi/irremote.md))
 
 ## macOS
 
