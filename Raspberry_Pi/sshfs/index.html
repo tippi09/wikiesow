@@ -528,12 +528,10 @@ Now I have added another «pimount.sh» script in my home directory:
     mkdir /Users/«user»/«mountdirectory»
     ssh -t «piuser»@«pihostname» <span class="s2">&quot;sudo ./pimount.sh </span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="c1"># Mount drive on Raspberry</span>
     sshfs «piuser»@«pihostname»:/home/«piuser»/«pimountdirectory» /Users/«user»/«mountdirectory»
-    <span class="nb">exit</span>
 <span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;unmount&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
     ssh -t «piuser»@«pihostname» <span class="s2">&quot;sudo ./pimount.sh </span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="c1"># Run unmount script on Raspberry</span>
     umount -f /Users/«user»/«mountdirectory»
     rm -rf /Users/«user»/«mountdirectory»
-    <span class="nb">exit</span>
 <span class="k">fi</span>
 </pre></div>
 Once again make it executable with <code class="codehilite">chmod +x «pimount.sh»</code>. Now I have added two aliases in my <code class="codehilite"><span class="na">.zshrc</span></code>, to mount the hard drive with a single command in the terminal:
