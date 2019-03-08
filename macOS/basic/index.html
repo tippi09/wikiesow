@@ -511,9 +511,9 @@ Now you should be able to type <code class="codehilite">fuck</code> in your term
 </details>
 <p>The evaluation of <code class="codehilite">thefuck</code> is already contained in the following <code class="codehilite"><span class="na">.zshrc</span></code> configuration I am using. If you think <code class="codehilite">fuck</code> is a too vulgar alias for this command, you are of course free to change it to anything you like.</p>
 <h2 id="configure-vim-and-zsh">Configure Vim and zsh<a class="headerlink" href="#configure-vim-and-zsh" title="Permanent link">&para;</a></h2>
-<p>For my Vim and zsh configuration I am using the <a href="https://bitbucket.org/rngcntr/.dotfiles">.dotfiles repository by rngcntr</a>. First we have to clone the repository:
+<p>For my Vim and zsh configuration I am using the <a href="https://github.com/rngcntr/.dotfiles">.dotfiles repository by rngcntr</a>. First we have to clone the repository:
 <div class="codehilite"><pre><span></span><span class="gp">#</span> <span class="nb">cd</span> ~
-<span class="gp">#</span> git clone git@bitbucket.org:rngcntr/.dotfiles.git .dotfiles
+<span class="gp">#</span> git clone https://github.com/rngcntr/.dotfiles.git .dotfiles
 <span class="gp">#</span> <span class="nb">cd</span> .dotfiles/
 <span class="gp">#</span> git submodule init
 <span class="gp">#</span> git submodule update
@@ -529,7 +529,7 @@ Now you should be able to type <code class="codehilite">fuck</code> in your term
 <div class="codehilite"><pre><span></span><span class="na">.vimrc</span> <span class="p">-</span><span class="err">&gt;</span> <span class="no">.dotfiles</span><span class="err">/</span><span class="no">.vimrc</span>
 <span class="na">.zshrc</span> <span class="p">-</span><span class="err">&gt;</span> <span class="no">.dotfiles</span><span class="err">/</span><span class="no">.zshrc</span>
 </pre></div>
-Now we improve the terminal experience by installing and configuring <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a>:
+Now we improve the terminal experience by installing and configuring <a href="https://github.com/rngcntr">rngcntr</a>'s fork of <a href="https://github.com/rngcntr/oh-my-zsh">oh-my-zsh</a> (<a href="https://github.com/robbyrussell/oh-my-zsh">original by robbyrussel</a>):
 <div class="codehilite"><pre><span></span><span class="gp">#</span> <span class="nb">cd</span> ~
 <span class="gp">#</span> ln -s .dotfiles/.oh-my-zsh .oh-my-zsh
 <span class="gp">#</span> ./.oh-my-zsh/tools/install.sh
