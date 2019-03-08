@@ -27,10 +27,10 @@ The evaluation of `thefuck` is already contained in the following `.zshrc` confi
 
 ## Configure Vim and zsh
 
-For my Vim and zsh configuration I am using the [.dotfiles repository by rngcntr](https://bitbucket.org/rngcntr/.dotfiles). First we have to clone the repository:
+For my Vim and zsh configuration I am using the [.dotfiles repository by rngcntr](https://github.com/rngcntr/.dotfiles). First we have to clone the repository:
 ```console
 # cd ~
-# git clone git@bitbucket.org:rngcntr/.dotfiles.git .dotfiles
+# git clone https://github.com/rngcntr/.dotfiles.git .dotfiles
 # cd .dotfiles/
 # git submodule init
 # git submodule update
@@ -50,7 +50,7 @@ You can check if the links work by running `ls -l .vimrc` and `ls -l .zshrc` in 
 .vimrc -> .dotfiles/.vimrc
 .zshrc -> .dotfiles/.zshrc
 ```
-Now we improve the terminal experience by installing and configuring [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh):
+Now we improve the terminal experience by installing and configuring [rngcntr](https://github.com/rngcntr)'s fork of [oh-my-zsh](https://github.com/rngcntr/oh-my-zsh) ([original by robbyrussel](https://github.com/robbyrussell/oh-my-zsh)):
 ```console
 # cd ~
 # ln -s .dotfiles/.oh-my-zsh .oh-my-zsh
