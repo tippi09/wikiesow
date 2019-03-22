@@ -513,7 +513,7 @@ If you like, you can also disable password authentification for SSH access, this
 </pre></div></p>
 <h2 id="router-settings">Router settings<a class="headerlink" href="#router-settings" title="Permanent link">&para;</a></h2>
 <p>To make sure your internet router also works with IPv6 DS Lite and that it assigns global IPv6 addresses to your local devices (including your Raspberry Pi), some adjustments might have to be made <em>(Note: These settings depend on the router you use. I'm using an AVM Fritzbox, whose configuration can differ from your router)</em>.
-At first I make sure my router uses a native IPv6-connection instead of IPv4 tunneling for IPv6 connectivity by setting the following in <strong>Zugangsdaten -&gt; IPv6</strong>:
+At first I make sure my router uses a native IPv6-connection instead of IPv4 tunneling for IPv6 connectivity by setting the following in <strong>Internet -&gt; Zugangsdaten -&gt; IPv6</strong>:
 <img alt="Image" src="../images/ssh6_zugangsdatenIPv6.png" />
 Afterwards we configure our DHCPv6 server in <strong>Netzwerk -&gt; Netzwerkeinstellungen -&gt; IPv6 Adressen</strong>, so that it assigns IPv6 addresses from your address range to the devices you are port forwarding, making them directly addressable from the internet:
 <img alt="Image" src="../images/ssh6_dhcpv6.png" />
