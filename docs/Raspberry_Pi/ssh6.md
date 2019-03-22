@@ -25,7 +25,7 @@ PasswordAuthentication no
 
 ## Router settings
 To make sure your internet router also works with IPv6 DS Lite and that it assigns global IPv6 addresses to your local devices (including your Raspberry Pi), some adjustments might have to be made *(Note: These settings depend on the router you use. I'm using an AVM Fritzbox, whose configuration can differ from your router)*.
-At first I make sure my router uses a native IPv6-connection instead of IPv4 tunneling for IPv6 connectivity by setting the following in **Zugangsdaten -> IPv6**:
+At first I make sure my router uses a native IPv6-connection instead of IPv4 tunneling for IPv6 connectivity by setting the following in **Internet -> Zugangsdaten -> IPv6**:
 ![Image](images/ssh6_zugangsdatenIPv6.png)
 Afterwards we configure our DHCPv6 server in **Netzwerk -> Netzwerkeinstellungen -> IPv6 Adressen**, so that it assigns IPv6 addresses from your address range to the devices you are port forwarding, making them directly addressable from the internet:
 ![Image](images/ssh6_dhcpv6.png)
