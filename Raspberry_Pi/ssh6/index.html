@@ -517,8 +517,8 @@ At first I make sure my router uses a native IPv6-connection instead of IPv4 tun
 <img alt="Image" src="../images/ssh6_zugangsdatenIPv6.png" />
 Afterwards we configure our DHCPv6 server in <strong>Netzwerk -&gt; Netzwerkeinstellungen -&gt; IPv6 Adressen</strong>, so that it assigns IPv6 addresses from your address range to the devices you are port forwarding, making them directly addressable from the internet:
 <img alt="Image" src="../images/ssh6_dhcpv6.png" />
-<strong>TODO: Describe port forwarding</strong>
-At this point you should be able to connect to your Raspberry Pi from the internet via SSH using the following command:
+The last thing that has to be done is to <strong>enable port forwarding</strong> for the corresponding SSH port (default port for SSH is 22). Make sure you enable the port forward for IPv6 and choose the TCP protocol.
+Afterwards you should be able to connect to your Raspberry Pi from the internet via SSH using the following command:
 <div class="codehilite"><pre><span></span><span class="gp">#</span> ssh -6 &lt;user&gt;@&lt;global ipv6&gt;
 </pre></div></p>
 <h2 id="configure-dynamic-dns-optional">Configure Dynamic DNS (optional)<a class="headerlink" href="#configure-dynamic-dns-optional" title="Permanent link">&para;</a></h2>
